@@ -14,8 +14,8 @@ class Solution:
             root_index = inorder.index(root_val)
             inorder_left = inorder[:root_index]
             inorder_right = inorder[root_index+1:]
-            pre_left = preorder[1:len(inorder_left)]
-            pre_right = preorder[len(inorder_left):]
+            pre_left = preorder[1:1+len(inorder_left)]
+            pre_right = preorder[1+len(inorder_left):]
             root.left = bulid(pre_left, inorder_left)
             root.right = bulid(pre_right, inorder_right)
             return root
