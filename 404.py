@@ -1,11 +1,15 @@
 # Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
+from typing import Optional
+
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 class Solution:
     def sumOfLeftLeaves(self, root: Optional[TreeNode]) -> int:
+
         def dfs(node):
             result = 0
             if node is None:
@@ -17,3 +21,12 @@ class Solution:
             return result
         result = dfs(root)
         return result
+
+
+node9 = TreeNode(9)
+node15 = TreeNode(15)
+node7 = TreeNode(7)
+node20 = TreeNode(20, node15, node7)
+node3 = TreeNode(3, node9, node20)
+
+print(Solution().sumOfLeftLeaves(node3))
