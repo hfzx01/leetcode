@@ -1,14 +1,13 @@
-class Unionfind:
-    def __init__(self, size):
-        self.parent = list(range(size+1))
-    def find(self, u):
-        if self.parent[u] != u:
-            self.parent[u] = self.find(self.parent[u])
-        return self.parent[u]
-    def join(self, u, v):
-        u = self.find(u)
-        v = self.find(v)
-        if u != v:
-            self.parent[v] = u
-    def isSame(self, u, v):
-        return self.find(u) == self.find(v)
+n = int(input())
+a = list(map(int, input().split()))
+result = 0
+def increase(nums):
+    for i in range(len(nums)-1):
+        if nums[i] > nums[i+1]:
+            return False
+    return True
+for i in range(n+1):
+    for j in range(i+1, n+1):
+        if increase(a[:i]+a[j:]):
+            result += 1
+print(result)
